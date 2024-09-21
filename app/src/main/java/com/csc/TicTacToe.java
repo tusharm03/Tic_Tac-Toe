@@ -15,13 +15,13 @@ public class TicTacToe {
     private void initializeBoard() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                board[i][j] = (char) ('1' + (i * 3 + j)); // Fill with '1' to '9'
+                board[i][j] = (char) ('1' + (i * 3 + j)); 
             }
         }
     }
 
     private void printBoard() {
-        System.out.println(); // Add an extra line before printing the board
+        System.out.println(); 
         for (int i = 0; i < 3; i++) {
             System.out.print(" ");
             for (int j = 0; j < 3; j++) {
@@ -31,7 +31,7 @@ public class TicTacToe {
             System.out.println();
             if (i < 2) System.out.println("-----------");
         }
-        System.out.println(); // Add an extra line after printing the board
+        System.out.println(); 
     }
 
     private boolean isBoardFull() {
@@ -63,10 +63,9 @@ public class TicTacToe {
             printBoard();
             System.out.print("Player " + currentPlayer + " - where would you like to move? ");
 
-            // Use a try-catch to handle potential input issues
             try {
                 if (scanner.hasNextInt()) {
-                    int move = scanner.nextInt() - 1; // Convert to 0-based index
+                    int move = scanner.nextInt() - 1; 
 
                     // Validate the move
                     if (move < 0 || move > 8 || board[move / 3][move % 3] == 'X' || board[move / 3][move % 3] == 'O') {
@@ -94,14 +93,13 @@ public class TicTacToe {
                     currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
                 } else {
                     System.out.println("Invalid input. Please enter a number.");
-                    scanner.next(); // Clear the invalid input
+                    scanner.next(); 
                 }
             } catch (Exception e) {
                 System.out.println("Error reading input: " + e.getMessage());
-                scanner.next(); // Clear invalid input
+                scanner.next(); 
             }
         }
-        // Do not close the scanner, as it is reading System.in
     }
 
     public static void main(String[] args) {
