@@ -1,0 +1,24 @@
+plugins {
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.google.guava:guava:31.1-jre' 
+}
+
+application {
+    mainClass = 'com.csc.TicTacToe'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21) 
+    }
+}
+tasks.withType(JavaExec) {
+    standardInput = System.in
+}
